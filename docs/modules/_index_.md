@@ -29,14 +29,14 @@
 
 ** Command**:  *function* 
 
-*Defined in [index.ts:11](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L11)*
+*Defined in [index.ts:11](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L11)*
 
 
 #### Type declaration
 (data$: *`Observable`<[CommandData](_index_.md#commanddata)>*): `Observable`<[Response](_index_.md#response)>
 
 
-*Defined in [index.ts:11](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L11)*
+*Defined in [index.ts:11](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L11)*
 
 
 
@@ -65,7 +65,7 @@ ___
 
 ** CommandData**:  *object* 
 
-*Defined in [index.ts:10](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L10)*
+*Defined in [index.ts:10](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L10)*
 
 
 #### Type declaration
@@ -90,7 +90,7 @@ ___
 
 ** Responder**:  *function* 
 
-*Defined in [index.ts:45](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L45)*
+*Defined in [index.ts:45](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L45)*
 
 
 
@@ -102,7 +102,7 @@ You can also return a Promise in case your Response would need to be base on an 
 (message: *`Message`*, ...args: *`string`[]*): `Promise`<[Response](_index_.md#response)>⎮[Response](_index_.md#response)
 
 
-*Defined in [index.ts:45](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L45)*
+*Defined in [index.ts:45](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L45)*
 
 
 
@@ -132,7 +132,7 @@ ___
 
 ** Response**:  *object* 
 
-*Defined in [index.ts:5](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L5)*
+*Defined in [index.ts:5](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L5)*
 
 
 #### Type declaration
@@ -166,7 +166,7 @@ ___
 
 
 
-*Defined in [index.ts:19](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L19)*
+*Defined in [index.ts:19](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L19)*
 
 
 
@@ -204,7 +204,7 @@ ___
 
 
 
-*Defined in [index.ts:54](https://github.com/chadrien/accord/blob/4e2dbba/accord/index.ts#L54)*
+*Defined in [index.ts:54](https://github.com/chadrien/accord/blob/f6b7ce6/accord/index.ts#L54)*
 
 
 

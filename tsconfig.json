@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "outDir": "dist/"
+  },
+  "include": [
+    "accord/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "accord",
+  "version": "0.1.0",
+  "description": "Discord bot library using streams",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chadrien/accord.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "streams",
+    "rx",
+    "rxjs"
+  ],
+  "author": "Hadrien de Cuzey <hadrien@decuzey.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chadrien/accord/issues"
+  },
+  "homepage": "https://github.com/chadrien/accord#readme",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "rxjs": "5.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "8.0.10",
+    "discord.js": "~11.1.0",
+    "mocha": "3.4.2",
+    "tslint": "5.5.0",
+    "typescript": "2.4.1"
+  },
+  "peerDependencies": {
+    "discord.js": "~11.1.0"
+  }
+}

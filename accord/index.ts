@@ -28,7 +28,7 @@ export function bootstrapBot(discordBot: Client, commands: Command[], commandPre
   });
 }
 
-type Responder = (message: Message, ...args: string[]) => Response;
+type Responder = (message: Message, ...args: string[]) => Promise<Response> | Response;
 
 export function createCommand(command: string | RegExp, responder: Responder): Command {
   const regExpToString = (regExp: RegExp) => regExp.toString().replace(/^\/|\/$/g, '');
@@ -37,8 +37,9 @@ export function createCommand(command: string | RegExp, responder: Responder): C
 
   return data$ => data$
     .filter(({ message, commandPrefix }) => getCommandRegExp(commandPrefix).test(message.content))
-    .map(({ message, commandPrefix }) => {
+    .mergeMap(({ message, commandPrefix }) => {
       const responderArgs = (message.content.match(getCommandRegExp(commandPrefix)) || []).slice(1);
-      return responder.apply(null, [ message, ...responderArgs ]);
+      return Promise.resolve()
+        .then(() => responder.apply(null, [ message, ...responderArgs ]));
     });
 }

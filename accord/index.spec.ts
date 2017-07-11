@@ -1,70 +1,67 @@
-import { EventEmitter } from 'events';
-import { Client, Message, TextChannel, Guild } from 'discord.js';
 import { Observable } from 'accord/utils/rxjs';
-import { createMessageStream } from 'accord';
+import { TextChannel, Message } from 'discord.js';
+import { createCommand } from 'accord';
 import { assertEqual } from 'accord/utils/test';
 
 describe('accord/index.ts', () => {
 
-  describe('createMessageStream()', () => {
+  describe('createCommand', () => {
 
-    let discordBot: Client;
+    [
+      [ 'with an empty command prefix', '' ],
+      [ 'with a command prefix', '!' ],
+    ].forEach(([ groupName, commandPrefix ]) => {
 
-    function emitMessages(message$: Observable<string | Message>): void {
-      message$.subscribe({
-        next(content) {
-          const message = typeof content !== 'string' ? content : {
-            author: {
-              bot: false,
-            },
-            content,
-          };
-          discordBot.emit('message', message);
-        },
-        complete: () => discordBot.emit('close'),
-      });
-    }
+      describe(groupName, () => {
 
-    function assertMessages(actual$: Observable<Message>, expectations: string[], done: any): void {
-      actual$
-        .takeUntil(Observable.fromEvent(discordBot, 'close'))
-        .subscribe({
-          next({ content }) {
-            assertEqual(content, expectations.shift());
-          },
-          error: done,
-          complete: done,
+        it('can work with a command string', done => {
+          const command = createCommand('ping', () => ({
+            content: 'pong',
+            recipient: {} as TextChannel,
+          }));
+
+          let i = 0;
+          command(Observable.from([ 'nah', 'ping', 'ping', 'nope ping', 'ping pong' ]).map(content => ({
+            message: { content: commandPrefix + content } as Message,
+            commandPrefix,
+          })))
+            .subscribe({
+              next({ content }) {
+                assertEqual(content, 'pong');
+                i++;
+              },
+              complete() {
+                assertEqual(i, 2); // 'ping pong' and 'nope ping' should not be valid
+                done();
+              },
+            });
         });
-    }
 
-    beforeEach(() => {
-      discordBot = new EventEmitter() as Client; // we don't need an actual client, we just need to be able to emit `message` events
-    });
+        it('can work with a command regexp', done => {
+          const command = createCommand(/^ping (.+) (.+)$/, (_, arg1, arg2) => ({
+            content: `${arg2} ${arg1}`,
+            recipient: {} as TextChannel,
+          }));
 
-    it('works without prefix', done => {
-      assertMessages(createMessageStream(discordBot), [ 'foo', 'bar', '!baz' ], done);
-      emitMessages(Observable.from([ 'foo', 'bar', '!baz' ]));
-    });
+          let i = 0;
+          command(Observable.from([ 'nah', 'ping foo bar', 'ping foo bar', 'nope ping foo bar', 'ping pong' ]).map(content => ({
+            message: { content: commandPrefix + content } as Message,
+            commandPrefix,
+          })))
+            .subscribe({
+              next({ content }) {
+                assertEqual(content, 'bar foo');
+                i++;
+              },
+              complete() {
+                assertEqual(i, 2); // 'ping pong' and 'nope ping foo bar' should not be valid
+                done();
+              },
+            });
+        });
 
-    it('works with prefix', done => {
-      assertMessages(createMessageStream(discordBot, '!'), [ '!foo', '!baz' ], done);
-      emitMessages(Observable.from([ '!foo', 'bar', '!baz' ]));
-    });
+      });
 
-    it('filters out messages from bots', done => {
-      const message$ = Observable.from([
-        'foo',
-        'bar',
-        {
-          content: 'baz',
-          author: {
-            bot: true,
-          },
-        } as Message,
-      ]);
-
-      assertMessages(createMessageStream(discordBot), [ 'foo', 'bar' ], done);
-      emitMessages(message$);
     });
 
   });

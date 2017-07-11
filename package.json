@@ -21,6 +21,9 @@
   "homepage": "https://github.com/chadrien/accord#readme",
   "main": "dist/index.js",
   "scripts": {
+    "pregenerate-docs": "rm -rf docs",
+    "generate-docs": "typedoc --out docs --exclude '**/utils/*' --excludeExternals --includeDeclarations --theme markdown",
+    "prebuild": "npm run generate-docs && rm -rf dist",
     "build": "tsc",
     "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord/**/*.spec.ts'"
   },
@@ -34,6 +37,8 @@
     "mocha": "3.4.2",
     "ts-node": "3.2.0",
     "tslint": "5.5.0",
+    "typedoc": "0.7.1",
+    "typedoc-plugin-markdown": "1.0.2",
     "typescript": "2.4.1"
   },
   "peerDependencies": {

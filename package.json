@@ -21,15 +21,18 @@
   "homepage": "https://github.com/chadrien/accord#readme",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord/**/*.spec.ts'"
   },
   "dependencies": {
     "rxjs": "5.4.2"
   },
   "devDependencies": {
+    "@types/mocha": "2.2.41",
     "@types/node": "8.0.10",
     "discord.js": "~11.1.0",
     "mocha": "3.4.2",
+    "ts-node": "3.2.0",
     "tslint": "5.5.0",
     "typescript": "2.4.1"
   },

@@ -61,6 +61,6 @@ export function createCommand(command: string | RegExp, responder: Responder): C
     .mergeMap(({ message, commandPrefix }) => {
       const responderArgs = (message.content.match(getCommandRegExp(commandPrefix)) || []).slice(1);
       return Promise.resolve()
-        .then(() => responder.apply(null, [ message, ...responderArgs ]));
+        .then(() => responder(message, ...responderArgs));
     });
 }

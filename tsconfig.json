@@ -14,8 +14,6 @@
     "accord/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "accord/**/*.spec.ts",
-    "accord/utils/test.ts"
+    "node_modules"
   ]
 }

@@ -1,14 +1,7 @@
-import { Observable, createMessageStream } from 'accord/utils/rxjs';
+import { Observable } from 'accord/utils/rxjs';
 import { Client, Message, StringResolvable, MessageOptions, User, GuildMember, TextChannel, DMChannel, GroupDMChannel } from 'discord.js';
 import { Subscription } from 'rxjs/Subscription';
-
-type Response = {
-  content?: StringResolvable,
-  options?: MessageOptions,
-  recipient: TextChannel | DMChannel | GroupDMChannel,
-};
-type CommandData = { message: Message, commandPrefix: string };
-type Command = (data$: Observable<CommandData>) => Observable<Response>;
+import { createMessageStream, createResponseStream, Command, Response } from 'accord/utils/discord';
 
 /**
  * `bootstrapBot` is used to start your bot, though it does not log the bot in or anything extra,
@@ -18,14 +11,7 @@ type Command = (data$: Observable<CommandData>) => Observable<Response>;
  */
 export function bootstrapBot(discordBot: Client, commands: Command[], commandPrefix: string = ''): Subscription {
   const message$ = createMessageStream(discordBot, commandPrefix);
-
-  const response$: Observable<Response> = commands
-    .reduce(
-      (mergedResponse$, command) => mergedResponse$.merge(
-        command(message$.map(message => ({ message, commandPrefix }))),
-      ),
-      Observable.empty<Response>(),
-    );
+  const response$ = createResponseStream(message$, commands, commandPrefix);
 
   return response$.subscribe({
     next: ({ recipient, content, options }) => recipient.send(content, options)

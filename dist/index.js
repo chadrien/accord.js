@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var rxjs_1 = require("accord/utils/rxjs");
+var discord_1 = require("accord/utils/discord");
 /**
  * `bootstrapBot` is used to start your bot, though it does not log the bot in or anything extra,
  * this kind of things are to be done in userland© and should not be the responsibility of Accord.
@@ -9,9 +9,8 @@ var rxjs_1 = require("accord/utils/rxjs");
  */
 function bootstrapBot(discordBot, commands, commandPrefix) {
     if (commandPrefix === void 0) { commandPrefix = ''; }
-    var message$ = rxjs_1.createMessageStream(discordBot, commandPrefix);
-    var response$ = commands
-        .reduce(function (mergedResponse$, command) { return mergedResponse$.merge(command(message$.map(function (message) { return ({ message: message, commandPrefix: commandPrefix }); }))); }, rxjs_1.Observable.empty());
+    var message$ = discord_1.createMessageStream(discordBot, commandPrefix);
+    var response$ = discord_1.createResponseStream(message$, commands, commandPrefix);
     return response$.subscribe({
         next: function (_a) {
             var recipient = _a.recipient, content = _a.content, options = _a.options;
@@ -43,7 +42,7 @@ function createCommand(command, responder) {
         var message = _a.message, commandPrefix = _a.commandPrefix;
         var responderArgs = (message.content.match(getCommandRegExp(commandPrefix)) || []).slice(1);
         return Promise.resolve()
-            .then(function () { return responder.apply(null, [message].concat(responderArgs)); });
+            .then(function () { return responder.apply(void 0, [message].concat(responderArgs)); });
     }); };
 }
 exports.createCommand = createCommand;

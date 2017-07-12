@@ -43,12 +43,14 @@ describe('accord/utils/discord.ts', () => {
     });
 
     it('works with an empty prefix', done => {
-      assertMessages(createMessageStream(discordBot, ''), [ 'foo', 'bar', '!baz' ], done);
+      const message$ = createMessageStream(discordBot, '');
+      assertMessages(message$, [ 'foo', 'bar', '!baz' ], done);
       emitMessages(Observable.from([ 'foo', 'bar', '!baz' ]));
     });
 
     it('works with prefix', done => {
-      assertMessages(createMessageStream(discordBot, '!'), [ '!foo', '!baz' ], done);
+      const message$ = createMessageStream(discordBot, '!')
+      assertMessages(message$, [ '!foo', '!baz' ], done);
       emitMessages(Observable.from([ '!foo', 'bar', '!baz' ]));
     });
 

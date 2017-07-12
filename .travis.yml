@@ -4,6 +4,11 @@ node_js:
   - "7"
 before_script:
   - npm install -g coveralls
-script:
-  - npm run test-coverage
+  - npm install -g codeclimate-test-reporter
+script:  npm run test-coverage
+after_success:
   - node_modules/.bin/nyc report -r text-lcov | coveralls
+  - node_modules/.bin/nyc report -r text-lcov | codeclimate-test-reporter
+addons:
+  code_climate:
+    repo_token: 31324821ddc0a5bcee916a115170820013542e7d1edbb641209425db4d42708b

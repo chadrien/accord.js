@@ -25,7 +25,9 @@
     "generate-docs": "typedoc --out docs --exclude '**/utils/*' --excludeExternals --includeDeclarations --theme markdown",
     "prebuild": "npm run generate-docs && rm -rf dist",
     "build": "tsc",
-    "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord/**/*.spec.ts'"
+    "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord/**/*.spec.ts'",
+    "pretest-coverage": "rm -rf coverage",
+    "test-coverage": "NODE_PATH=. nyc -e '.ts' -n 'accord/**/*.ts' -x 'accord/**/*.spec.ts' -x 'accord/utils/test.ts' -i 'ts-node/register' --instrument -r text-summary -r html npm test"
   },
   "dependencies": {
     "rxjs": "5.4.2"
@@ -35,6 +37,7 @@
     "@types/node": "8.0.10",
     "discord.js": "~11.1.0",
     "mocha": "3.4.2",
+    "nyc": "11.0.3",
     "ts-node": "3.2.0",
     "tslint": "5.5.0",
     "typedoc": "0.7.1",

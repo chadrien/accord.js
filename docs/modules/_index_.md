@@ -8,7 +8,10 @@
 
 ### Type aliases
 
+* [Command](_index_.md#command)
+* [CommandData](_index_.md#commanddata)
 * [Responder](_index_.md#responder)
+* [Response](_index_.md#response)
 
 
 ### Functions
@@ -20,13 +23,74 @@
 
 ---
 ## Type aliases
+<a id="command"></a>
+
+###  Command
+
+** Command**:  *function* 
+
+*Defined in [index.ts:39](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L39)*
+
+
+#### Type declaration
+(data$: *`Observable`<[CommandData](_index_.md#commanddata)>*): `Observable`<[Response](_index_.md#response)>
+
+
+*Defined in [index.ts:39](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L39)*
+
+
+
+**Parameters:**
+
+| Param  | Type                | Description  |
+| ------ | ------------------- | ------------ |
+| data$ | `Observable`<[CommandData](_index_.md#commanddata)> | - |
+
+
+
+
+
+**Returns:** `Observable`<[Response](_index_.md#response)>
+
+
+
+
+
+
+___
+
+<a id="commanddata"></a>
+
+###  CommandData
+
+** CommandData**:  *object* 
+
+*Defined in [index.ts:38](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L38)*
+
+
+#### Type declaration
+
+
+commandPrefix: `string`
+
+
+
+message: `Message`
+
+
+
+
+
+
+___
+
 <a id="responder"></a>
 
 ###  Responder
 
 ** Responder**:  *function* 
 
-*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L31)*
+*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L31)*
 
 
 
@@ -35,10 +99,10 @@ The Responder is a simple function that takes in the original Message and the ev
 You can also return a Promise in case your Response would need to be base on an HTTP request result for example.
 
 #### Type declaration
-(message: *`Message`*, ...args: *`string`[]*): `Promise`<`Response`>⎮`Response`
+(message: *`Message`*, ...args: *`string`[]*): `Promise`<[Response](_index_.md#response)>⎮[Response](_index_.md#response)
 
 
-*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L31)*
+*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L31)*
 
 
 
@@ -53,7 +117,36 @@ You can also return a Promise in case your Response would need to be base on an 
 
 
 
-**Returns:** `Promise`<`Response`>⎮`Response`
+**Returns:** `Promise`<[Response](_index_.md#response)>⎮[Response](_index_.md#response)
+
+
+
+
+
+
+___
+
+<a id="response"></a>
+
+###  Response
+
+** Response**:  *object* 
+
+*Defined in [index.ts:32](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L32)*
+
+
+#### Type declaration
+
+
+Optionalcontent?: `StringResolvable`
+
+
+
+Optionaloptions?: `MessageOptions`
+
+
+
+recipient: `TextChannel`⎮`DMChannel`⎮`GroupDMChannel`
 
 
 
@@ -68,12 +161,12 @@ ___
 
 ###  bootstrapBot
 
-► **bootstrapBot**(discordBot: *`Client`*, commands: *`Command`[]*, commandPrefix?: *`string`*): `Subscription`
+► **bootstrapBot**(discordBot: *`Client`*, commands: *[Command](_index_.md#command)[]*, commandPrefix?: *`string`*): `Subscription`
 
 
 
 
-*Defined in [index.ts:12](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L12)*
+*Defined in [index.ts:12](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L12)*
 
 
 
@@ -87,7 +180,7 @@ The `commandPrefix` is what allows you to have for example commands like this: !
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
 | discordBot | `Client` | - |
-| commands | `Command`[] | - |
+| commands | [Command](_index_.md#command)[] | - |
 | commandPrefix | `string` | Default value = &quot;&quot;.- |
 
 
@@ -106,12 +199,12 @@ ___
 
 ###  createCommand
 
-► **createCommand**(command: *`string`⎮`RegExp`*, responder: *[Responder](_index_.md#responder)*): `Command`
+► **createCommand**(command: *`string`⎮`RegExp`*, responder: *[Responder](_index_.md#responder)*): [Command](_index_.md#command)
 
 
 
 
-*Defined in [index.ts:40](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L40)*
+*Defined in [index.ts:48](https://github.com/chadrien/accord/blob/c3ae4c3/accord.js/index.ts#L48)*
 
 
 
@@ -131,7 +224,7 @@ Using a RegExp allows to have more control on what you want to match, and also a
 
 
 
-**Returns:** `Command`
+**Returns:** [Command](_index_.md#command)
 
 
 

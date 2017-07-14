@@ -1,4 +1,4 @@
-[accord](../README.md) > ["index"](../modules/_index_.md)
+[accord.js](../README.md) > ["index"](../modules/_index_.md)
 
 
 
@@ -26,7 +26,7 @@
 
 ** Responder**:  *function* 
 
-*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/0ce96f8/accord/index.ts#L31)*
+*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L31)*
 
 
 
@@ -38,7 +38,7 @@ You can also return a Promise in case your Response would need to be base on an 
 (message: *`Message`*, ...args: *`string`[]*): `Promise`<`Response`>⎮`Response`
 
 
-*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/0ce96f8/accord/index.ts#L31)*
+*Defined in [index.ts:31](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L31)*
 
 
 
@@ -73,7 +73,7 @@ ___
 
 
 
-*Defined in [index.ts:12](https://github.com/chadrien/accord/blob/0ce96f8/accord/index.ts#L12)*
+*Defined in [index.ts:12](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L12)*
 
 
 
@@ -111,7 +111,7 @@ ___
 
 
 
-*Defined in [index.ts:40](https://github.com/chadrien/accord/blob/0ce96f8/accord/index.ts#L40)*
+*Defined in [index.ts:40](https://github.com/chadrien/accord/blob/1075fcb/accord.js/index.ts#L40)*
 
 
 

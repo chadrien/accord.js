@@ -1,4 +1,4 @@
-[accord](../README.md) > ["index.spec"](../modules/_index_spec_.md)
+[accord.js](../README.md) > ["index.spec"](../modules/_index_spec_.md)
 
 
 

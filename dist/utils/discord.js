@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var rxjs_1 = require("accord/utils/rxjs");
+var rxjs_1 = require("accord.js/utils/rxjs");
 function createMessageStream(discordBot, commandPrefix) {
     return rxjs_1.Observable.fromEvent(discordBot, 'message')
         .filter(function (_a) {

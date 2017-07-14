@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var discord_1 = require("accord/utils/discord");
+var discord_1 = require("accord.js/utils/discord");
 /**
  * `bootstrapBot` is used to start your bot, though it does not log the bot in or anything extra,
  * this kind of things are to be done in userland© and should not be the responsibility of Accord.

@@ -24,7 +24,7 @@
     "pregenerate-docs": "rm -rf docs",
     "generate-docs": "typedoc --out docs --exclude '**/utils/*' --excludeExternals --includeDeclarations --theme markdown",
     "prebuild": "npm run generate-docs && rm -rf dist",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord.js/**/*.spec.ts'",
     "pretest-coverage": "rm -rf coverage",
     "test-coverage": "NODE_PATH=. nyc -e '.ts' -n 'accord.js/**/*.ts' -x 'accord.js/**/*.spec.ts' -x 'accord.js/utils/test.ts' -i 'ts-node/register' --instrument -r text-summary -r html npm test"

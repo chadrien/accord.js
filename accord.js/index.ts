@@ -1,7 +1,7 @@
-import { Observable } from 'accord/utils/rxjs';
+import { Observable } from 'accord.js/utils/rxjs';
 import { Client, Message, StringResolvable, MessageOptions, User, GuildMember, TextChannel, DMChannel, GroupDMChannel } from 'discord.js';
 import { Subscription } from 'rxjs/Subscription';
-import { createMessageStream, createResponseStream, Command, Response } from 'accord/utils/discord';
+import { createMessageStream, createResponseStream, Command, Response } from 'accord.js/utils/discord';
 
 /**
  * `bootstrapBot` is used to start your bot, though it does not log the bot in or anything extra,

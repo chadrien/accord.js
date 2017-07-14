@@ -1,10 +1,10 @@
 {
-  "name": "accord",
+  "name": "accord.js",
   "version": "0.1.0",
   "description": "Discord bot library using streams",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chadrien/accord.git"
+    "url": "git+https://github.com/chadrien/accord.js.git"
   },
   "keywords": [
     "discord",
@@ -16,18 +16,18 @@
   "author": "Hadrien de Cuzey <hadrien@decuzey.fr>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chadrien/accord/issues"
+    "url": "https://github.com/chadrien/accord.js/issues"
   },
-  "homepage": "https://github.com/chadrien/accord#readme",
+  "homepage": "https://github.com/chadrien/accord.js#readme",
   "main": "dist/index.js",
   "scripts": {
     "pregenerate-docs": "rm -rf docs",
     "generate-docs": "typedoc --out docs --exclude '**/utils/*' --excludeExternals --includeDeclarations --theme markdown",
     "prebuild": "npm run generate-docs && rm -rf dist",
     "build": "tsc",
-    "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord/**/*.spec.ts'",
+    "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord.js/**/*.spec.ts'",
     "pretest-coverage": "rm -rf coverage",
-    "test-coverage": "NODE_PATH=. nyc -e '.ts' -n 'accord/**/*.ts' -x 'accord/**/*.spec.ts' -x 'accord/utils/test.ts' -i 'ts-node/register' --instrument -r text-summary -r html npm test"
+    "test-coverage": "NODE_PATH=. nyc -e '.ts' -n 'accord.js/**/*.ts' -x 'accord.js/**/*.spec.ts' -x 'accord.js/utils/test.ts' -i 'ts-node/register' --instrument -r text-summary -r html npm test"
   },
   "dependencies": {
     "rxjs": "5.4.2"

@@ -1,4 +1,4 @@
-# Accord
+# Accord.js
 
 [![Travis](https://img.shields.io/travis/chadrien/accord.svg?style=flat-square)](https://travis-ci.org/chadrien/accord)
 [![Coveralls](https://img.shields.io/coveralls/chadrien/accord.svg?style=flat-square)](https://coveralls.io/github/chadrien/accord)
@@ -15,10 +15,10 @@ The documentation is available in [`docs/`](docs/)
 
 ## Usage
 
-Here is an example of how to use Accord.
+Here is an example of how to use Accord.js.
 
 ```js
-import { bootstrapBot, createCommand } from 'accord';
+import { bootstrapBot, createCommand } from 'accord.js';
 import { Client } from 'discord.js';
 
 const discordToken = process.env.DISCORD_TOKEN || '';

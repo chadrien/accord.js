@@ -1,9 +1,9 @@
-import { Observable } from 'accord/utils/rxjs';
+import { Observable } from 'accord.js/utils/rxjs';
 import { TextChannel, Message } from 'discord.js';
-import { createCommand } from 'accord';
-import { assertEqual } from 'accord/utils/test';
+import { createCommand } from 'accord.js';
+import { assertEqual } from 'accord.js/utils/test';
 
-describe('accord/index.ts', () => {
+describe('accord.js/index.ts', () => {
 
   describe('createCommand', () => {
 

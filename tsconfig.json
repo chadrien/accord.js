@@ -11,7 +11,7 @@
     "outDir": "dist/"
   },
   "include": [
-    "accord/**/*.ts"
+    "accord.js/**/*.ts"
   ],
   "exclude": [
     "node_modules"

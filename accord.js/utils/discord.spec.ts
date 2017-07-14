@@ -1,11 +1,11 @@
 import { EventEmitter } from 'events';
 import { Client, Message, TextChannel, Guild } from 'discord.js';
-import { createMessageStream, createResponseStream } from 'accord/utils/discord';
-import { Observable } from 'accord/utils/rxjs';
-import { assertEqual } from 'accord/utils/test';
-import { createCommand } from 'accord';
+import { createMessageStream, createResponseStream } from 'accord.js/utils/discord';
+import { Observable } from 'accord.js/utils/rxjs';
+import { assertEqual } from 'accord.js/utils/test';
+import { createCommand } from 'accord.js';
 
-describe('accord/utils/discord.ts', () => {
+describe('accord.js/utils/discord.ts', () => {
 
   describe('createMessageStream()', () => {
 
@@ -72,7 +72,7 @@ describe('accord/utils/discord.ts', () => {
 
   });
 
-  describe.only('createResponseStream()', () => {
+  describe('createResponseStream()', () => {
 
     it('works with an empty prefix', done => {
       const pingCommand = createCommand('ping', message => ({

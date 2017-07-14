@@ -1,4 +1,4 @@
-import { Observable } from 'accord/utils/rxjs';
+import { Observable } from 'accord.js/utils/rxjs';
 import { Client, Message, StringResolvable, MessageOptions, TextChannel, DMChannel, GroupDMChannel } from 'discord.js';
 
 export function createMessageStream(discordBot: Client, commandPrefix: string): Observable<Message> {

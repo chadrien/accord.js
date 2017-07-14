@@ -1,7 +1,7 @@
 import { Observable } from 'accord.js/utils/rxjs';
 import { Client, Message, StringResolvable, MessageOptions, User, GuildMember, TextChannel, DMChannel, GroupDMChannel } from 'discord.js';
 import { Subscription } from 'rxjs/Subscription';
-import { createMessageStream, createResponseStream, Command, Response } from 'accord.js/utils/discord';
+import { createMessageStream, createResponseStream } from 'accord.js/utils/discord';
 
 /**
  * `bootstrapBot` is used to start your bot, though it does not log the bot in or anything extra,
@@ -28,7 +28,15 @@ export function bootstrapBot(discordBot: Client, commands: Command[], commandPre
  * You can also return a Promise in case your Response would need to be base on an HTTP request
  * result for example.
  */
-type Responder = (message: Message, ...args: string[]) => Promise<Response> | Response;
+export type Responder = (message: Message, ...args: string[]) => Promise<Response> | Response;
+export type Response = {
+  content?: StringResolvable,
+  options?: MessageOptions,
+  recipient: TextChannel | DMChannel | GroupDMChannel,
+};
+
+export type CommandData = { message: Message, commandPrefix: string };
+export type Command = (data$: Observable<CommandData>) => Observable<Response>;
 
 /**
  * Super simple function to create a command either from a string, in which case it will internally

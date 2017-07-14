@@ -1,5 +1,8 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true
+  },
   "exclude": [
     "accord.js/**/*.spec.ts"
   ]

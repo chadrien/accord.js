@@ -1,6 +1,6 @@
 {
   "name": "accord.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Discord bot library using streams",
   "repository": {
     "type": "git",
@@ -20,11 +20,14 @@
   },
   "homepage": "https://github.com/chadrien/accord.js#readme",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "pregenerate-docs": "rm -rf docs",
     "generate-docs": "typedoc --out docs --exclude '**/utils/*' --excludeExternals --includeDeclarations --theme markdown",
     "prebuild": "npm run generate-docs && rm -rf dist",
     "build": "tsc -p tsconfig.build.json",
+    "postbuild": "find dist -name '*.d.ts' -not -name 'index.d.ts' -exec rm {} \\;",
     "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord.js/**/*.spec.ts'",
     "pretest-coverage": "rm -rf coverage",
     "test-coverage": "NODE_PATH=. nyc -e '.ts' -n 'accord.js/**/*.ts' -x 'accord.js/**/*.spec.ts' -x 'accord.js/utils/test.ts' -i 'ts-node/register' --instrument -r text-summary -r html npm test"

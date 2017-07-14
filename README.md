@@ -2,6 +2,7 @@
 
 [![Travis](https://img.shields.io/travis/chadrien/accord.svg?style=flat-square)](https://travis-ci.org/chadrien/accord)
 [![Coveralls](https://img.shields.io/coveralls/chadrien/accord.svg?style=flat-square)](https://coveralls.io/github/chadrien/accord)
+[![npm](https://img.shields.io/npm/v/accord.js.svg?style=flat-square)](https://www.npmjs.com/package/accord.js)
 
 Accord is the library that will allow you to write your [discord](https://discordapp.com)
 bot with serenity.

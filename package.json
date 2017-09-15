@@ -19,13 +19,13 @@
     "url": "https://github.com/chadrien/accord.js/issues"
   },
   "homepage": "https://github.com/chadrien/accord.js#readme",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "pregenerate-docs": "rm -rf docs",
     "generate-docs": "typedoc --out docs --exclude '**/utils/*' --excludeExternals --includeDeclarations --theme markdown",
-    "prebuild": "npm run generate-docs && rm -rf dist",
+    "prebuild": "rm -rf dist",
     "build": "tsc -p tsconfig.build.json",
     "postbuild": "find dist -name '*.d.ts' -not -name 'index.d.ts' -exec rm {} \\;",
     "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord.js/**/*.spec.ts'",

@@ -28,7 +28,7 @@ export function bootstrapBot(discordBot: Client, commands: Command[], commandPre
  * You can also return a Promise in case your Response would need to be base on an HTTP request
  * result for example.
  */
-export type Responder = (message: Message, ...args: string[]) => undefined | Promise<Response> | Response;
+export type Responder = (message: Message, ...args: string[]) => void | Promise<Response> | Response;
 export type Response = {
   content?: StringResolvable,
   options?: MessageOptions,

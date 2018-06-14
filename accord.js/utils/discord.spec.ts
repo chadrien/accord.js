@@ -49,7 +49,7 @@ describe('accord.js/utils/discord.ts', () => {
     });
 
     it('works with prefix', done => {
-      const message$ = createMessageStream(discordBot, '!')
+      const message$ = createMessageStream(discordBot, '!');
       assertMessages(message$, [ '!foo', '!baz' ], done);
       emitMessages(Observable.from([ '!foo', 'bar', '!baz' ]));
     });

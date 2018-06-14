@@ -28,7 +28,7 @@ export function bootstrapBot(discordBot: Client, commands: Command[], commandPre
  * You can also return a Promise in case your Response would need to be base on an HTTP request
  * result for example.
  */
-export type Responder = (message: Message, ...args: string[]) => Promise<Response> | Response;
+export type Responder = (message: Message, ...args: string[]) => undefined | Promise<Response> | Response;
 export type Response = {
   content?: StringResolvable,
   options?: MessageOptions,
@@ -55,6 +55,10 @@ export function createCommand(command: string | RegExp, responder: Responder): C
     .mergeMap(({ message, commandPrefix }) => {
       const responderArgs = (message.content.match(getCommandRegExp(commandPrefix)) || []).slice(1);
       return Promise.resolve()
-        .then(() => responder(message, ...responderArgs));
+        .then(() => {
+          const response = responder(message, ...responderArgs);
+          if (response) return response;
+          return { recipient: message.channel }; // this allows commands to just produce side-effects
+        });
     });
 }

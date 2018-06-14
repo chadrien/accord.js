@@ -29,14 +29,14 @@
 
 ** Command**:  *function* 
 
-*Defined in [index.ts:39](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L39)*
+*Defined in [index.ts:39](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L39)*
 
 
 #### Type declaration
 (data$: *`Observable`<[CommandData](_index_.md#commanddata)>*): `Observable`<[Response](_index_.md#response)>
 
 
-*Defined in [index.ts:39](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L39)*
+*Defined in [index.ts:39](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L39)*
 
 
 
@@ -65,7 +65,7 @@ ___
 
 ** CommandData**:  *object* 
 
-*Defined in [index.ts:38](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L38)*
+*Defined in [index.ts:38](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L38)*
 
 
 #### Type declaration
@@ -90,7 +90,7 @@ ___
 
 ** Responder**:  *function* 
 
-*Defined in [index.ts:31](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L31)*
+*Defined in [index.ts:31](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L31)*
 
 
 
@@ -99,10 +99,10 @@ The Responder is a simple function that takes in the original Message and the ev
 You can also return a Promise in case your Response would need to be base on an HTTP request result for example.
 
 #### Type declaration
-(message: *`Message`*, ...args: *`string`[]*): `Promise`<[Response](_index_.md#response)>⎮[Response](_index_.md#response)
+(message: *`Message`*, ...args: *`string`[]*): `undefined`⎮`Promise`<[Response](_index_.md#response)>⎮[Response](_index_.md#response)
 
 
-*Defined in [index.ts:31](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L31)*
+*Defined in [index.ts:31](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L31)*
 
 
 
@@ -117,7 +117,7 @@ You can also return a Promise in case your Response would need to be base on an 
 
 
 
-**Returns:** `Promise`<[Response](_index_.md#response)>⎮[Response](_index_.md#response)
+**Returns:** `undefined`⎮`Promise`<[Response](_index_.md#response)>⎮[Response](_index_.md#response)
 
 
 
@@ -132,7 +132,7 @@ ___
 
 ** Response**:  *object* 
 
-*Defined in [index.ts:32](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L32)*
+*Defined in [index.ts:32](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L32)*
 
 
 #### Type declaration
@@ -166,7 +166,7 @@ ___
 
 
 
-*Defined in [index.ts:12](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L12)*
+*Defined in [index.ts:12](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L12)*
 
 
 
@@ -204,7 +204,7 @@ ___
 
 
 
-*Defined in [index.ts:48](https://github.com/chadrien/accord.js/blob/6c9e20d/accord.js/index.ts#L48)*
+*Defined in [index.ts:48](https://github.com/chadrien/accord.js/blob/7e579e7/accord.js/index.ts#L48)*
 
 
 

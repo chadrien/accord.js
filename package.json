@@ -1,6 +1,6 @@
 {
   "name": "accord.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Discord bot library using streams",
   "repository": {
     "type": "git",

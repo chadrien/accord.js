@@ -14,7 +14,7 @@ export function bootstrapBot(discordBot: Client, commands: Command[], commandPre
   const response$ = createResponseStream(message$, commands, commandPrefix);
 
   return response$.subscribe({
-    next: ({ recipient, content, options }) => recipient.send(content, options)
+    next: ({ recipient, content, options }) => content && recipient.send(content, options) // if there's no content, we don't send anything
       .catch(console.error),
     error: console.error,
     complete: () => console.log('Response stream completed'), // tslint:disable-line:no-console

@@ -1,0 +1,53 @@
+{
+  "name": "accord.js",
+  "version": "0.1.3",
+  "description": "Discord bot library using streams",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chadrien/accord.js.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "streams",
+    "rx",
+    "rxjs"
+  ],
+  "author": "Hadrien de Cuzey <hadrien@decuzey.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chadrien/accord.js/issues"
+  },
+  "homepage": "https://github.com/chadrien/accord.js#readme",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "types": "index.d.ts",
+  "scripts": {
+    "pregenerate-docs": "rm -rf docs",
+    "generate-docs": "typedoc --out docs --exclude '**/utils/*' --excludeExternals --includeDeclarations --theme markdown",
+    "prebuild": "rm -rf dist",
+    "build": "tsc -p tsconfig.build.json",
+    "postbuild": "find dist -name '*.d.ts' -not -name 'index.d.ts' -exec rm {} \\;",
+    "test": "NODE_PATH=. mocha --compilers ts:ts-node/register 'accord.js/**/*.spec.ts'",
+    "pretest-coverage": "rm -rf coverage",
+    "test-coverage": "NODE_PATH=. nyc -e '.ts' -n 'accord.js/**/*.ts' -x 'accord.js/**/*.spec.ts' -x 'accord.js/utils/test.ts' -i 'ts-node/register' --instrument -r text-summary -r html npm test"
+  },
+  "dependencies": {
+    "rxjs": "5.4.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "2.2.41",
+    "@types/node": "8.0.10",
+    "discord.js": "~11.1.0",
+    "mocha": "3.4.2",
+    "nyc": "11.0.3",
+    "ts-node": "3.2.0",
+    "tslint": "5.5.0",
+    "typedoc": "0.7.1",
+    "typedoc-plugin-markdown": "1.0.2",
+    "typescript": "2.4.1"
+  },
+  "peerDependencies": {
+    "discord.js": "~11.1.0"
+  }
+}
